@@ -37,28 +37,34 @@ export default function ContactPage() {
 
   const contactInfo = [
     {
-      icon: Mail,
-      title: 'Email',
-      content: 'info@saptrishifoundation.in',
-      link: 'mailto:info@saptrishifoundation.in'
+      icon: MapPin,
+      title: 'Office Location',
+      content: 'C/o Citizen First, Office No 104, First Floor, Rainbow Plaza, Shivar Circle, Rahatani, Pune - 17',
+      link: null
     },
     {
       icon: Phone,
-      title: 'Phone',
-      content: '+91-XXXXXXXXXX',
-      link: 'tel:+91XXXXXXXXXX'
+      title: 'Office Contact No',
+      content: '+91 9172716630',
+      link: 'tel:+919172716630'
     },
     {
-      icon: MapPin,
-      title: 'Location',
-      content: 'Registered with Government of India',
-      link: null
+      icon: Phone,
+      title: 'Enrolment of Divyang Membership',
+      content: '+91 9665363177',
+      link: 'tel:+919665363177'
     },
     {
-      icon: Clock,
-      title: 'Working Hours',
-      content: 'Mon - Fri: 9:00 AM - 6:00 PM',
-      link: null
+      icon: Phone,
+      title: 'Claim Related Query',
+      content: '+91 9075705939',
+      link: 'tel:+919075705939'
+    },
+    {
+      icon: Mail,
+      title: 'Email',
+      content: 'saptrishifoundationpune@gmail.com',
+      link: 'mailto:saptrishifoundationpune@gmail.com'
     }
   ]
 
@@ -123,16 +129,42 @@ export default function ContactPage() {
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <h3 className="font-semibold text-gray-800 mb-4">Follow Us</h3>
                   <div className="flex gap-3">
-                    {['Facebook', 'Twitter', 'Instagram', 'LinkedIn', 'YouTube'].map((social) => (
-                      <a
-                        key={social}
-                        href={`#${social.toLowerCase()}`}
-                        className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-orange hover:text-white transition-all"
-                        aria-label={social}
-                      >
-                        <span className="text-sm font-bold">{social.charAt(0)}</span>
-                      </a>
-                    ))}
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100080244490383"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-orange hover:text-white transition-all"
+                      aria-label="Facebook"
+                    >
+                      <span className="text-sm font-bold">F</span>
+                    </a>
+                    <a
+                      href="https://x.com/SaptrishiF1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-orange hover:text-white transition-all"
+                      aria-label="Twitter"
+                    >
+                      <span className="text-sm font-bold">X</span>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/channel/UCiSuDYU4NfCrQz7F7fD97sg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-orange hover:text-white transition-all"
+                      aria-label="YouTube"
+                    >
+                      <span className="text-sm font-bold">Y</span>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/saptrishi-foundation-29b073230/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary-orange hover:text-white transition-all"
+                      aria-label="LinkedIn"
+                    >
+                      <span className="text-sm font-bold">L</span>
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -268,18 +300,19 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (Placeholder) */}
+      {/* Map Section */}
       <section className="bg-gray-100 py-0">
-        <div className="w-full h-96 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={48} className="text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg">
-              Map Integration Area
-            </p>
-            <p className="text-gray-500 text-sm">
-              (Google Maps can be integrated here)
-            </p>
-          </div>
+        <div className="w-full h-96 md:h-[500px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8877647877396!2d73.78825257516795!3d18.631636982496795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9c6c6c6c6c7%3A0x7a7a7a7a7a7a7a7a!2sRainbow%20Plaza%2C%20Shivar%20Circle%2C%20Rahatani%2C%20Pune!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Saptarishi Foundation Office Location"
+          ></iframe>
         </div>
       </section>
     </>

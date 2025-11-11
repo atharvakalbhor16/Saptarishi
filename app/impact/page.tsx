@@ -1,237 +1,149 @@
 'use client'
 
 import PageHeader from '@/components/PageHeader'
-import StatCard from '@/components/StatCard'
 import { motion } from 'framer-motion'
-import { Users, Award, Heart, Building2, GraduationCap, Briefcase } from 'lucide-react'
+import { Users, Heart, ShieldPlus, GraduationCap, Droplet, Package } from 'lucide-react'
 
 export default function ImpactPage() {
-  const stats = [
-    { icon: Users, value: '50,000+', label: 'Beneficiaries Served' },
-    { icon: Award, value: '1,200+', label: 'Government Schemes Accessed' },
-    { icon: Heart, value: '500+', label: 'Active Volunteers' },
-    { icon: Building2, value: '150+', label: 'Partner Organizations' },
-    { icon: GraduationCap, value: '10,000+', label: 'Training Sessions' },
-    { icon: Briefcase, value: '800+', label: 'Employment Opportunities' }
-  ]
-
-  const achievements = [
+  const programs = [
     {
-      year: '2025',
-      title: 'Digital Platform Launch',
-      description: 'Successfully launched mobile and web applications reaching 50,000+ users across India.'
+      icon: Users,
+      title: 'Holistic Divyang Support Program',
+      stats: [
+        'Till today, more than 1000 people have received disability certificates and UDID Card',
+        'More than 200 people received Aadhar and PAN card',
+        'More than 1000 people benefited from the health check-up camp.',
+        'More than 3000+ people Niramaya health claim settled by us.'
+      ]
     },
     {
-      year: '2024',
-      title: 'National Recognition',
-      description: 'Awarded Best Social Initiative by Government of India for our integrated platform approach.'
+      icon: Heart,
+      title: 'Funeral of unclaimed human dead bodies',
+      stats: [
+        'Till today, more than 500 funerals of unclaimed human dead bodies are conducted in Pimpri Chinchwad'
+      ]
     },
     {
-      year: '2024',
-      title: 'Pan-India Expansion',
-      description: 'Extended services to 25 states, establishing resource centers in major cities.'
+      icon: ShieldPlus,
+      title: 'Blanket Distributions',
+      stats: [
+        'More than 2000 blankets are distributed.'
+      ]
     },
     {
-      year: '2023',
-      title: 'Insurance Program',
-      description: 'Provided comprehensive insurance coverage to 5,000+ differently abled individuals.'
+      icon: GraduationCap,
+      title: 'Scholarship Program',
+      stats: [
+        'More than 100 students got benefits from this program.'
+      ]
     },
     {
-      year: '2023',
-      title: 'Partnership Network',
-      description: 'Collaborated with 150+ NGOs, healthcare providers, and government departments.'
+      icon: Droplet,
+      title: 'Watershed Impact',
+      stats: [
+        'The constructed Continuous Contour Trenches (CCT) of 12000m in a scientific manner helped to increase groundwater level.',
+        'Soil and water conversation is increased and now villagers are not dependent on water tankers during the summer season.',
+        'Villagers are able to cultivate crops during the summer season too therefore agriculture income has increased.'
+      ]
     },
     {
-      year: '2022',
-      title: 'Foundation Established',
-      description: 'Registered with Government of India, beginning our mission to empower the differently abled community.'
-    }
-  ]
-
-  const impactAreas = [
-    {
-      title: 'Healthcare Access',
-      percentage: 85,
-      description: 'Improved access to quality healthcare services'
-    },
-    {
-      title: 'Education Support',
-      percentage: 78,
-      description: 'Enhanced educational opportunities and resources'
-    },
-    {
-      title: 'Employment',
-      percentage: 72,
-      description: 'Increased employment and skill development'
-    },
-    {
-      title: 'Government Schemes',
-      percentage: 90,
-      description: 'Successfully enrolled in beneficial schemes'
+      icon: Package,
+      title: 'Covid Relief Program',
+      stats: [
+        'Distributed ration kits to more than 2500 families'
+      ]
     }
   ]
 
   return (
     <>
       <PageHeader 
-        title="Our Impact" 
-        subtitle="Measuring the difference we make in lives every day"
+        title="Impact" 
+        subtitle=""
       />
 
-      {/* Statistics */}
+      {/* Impact Programs */}
       <section className="section-padding bg-white">
-        <div className="container-custom">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Impact in Numbers
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Real metrics showing the tangible change we're creating
-            </p>
-          </motion.div>
+        <div className="container-custom max-w-7xl">
+          <div className="space-y-16">
+            {programs.map((program, index) => (
+              <div key={program.title}>
+                <motion.div
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {/* Left side - Icon and Title */}
+                  <div className="lg:col-span-3">
+                    <div className="mb-6">
+                      <program.icon className="w-20 h-20 stroke-1" strokeWidth={1.5} />
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+                      {program.title}
+                    </h2>
+                  </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <StatCard 
-                key={stat.label}
-                {...stat}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Areas */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Key Impact Areas
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Where we're making the most significant difference
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto space-y-8">
-            {impactAreas.map((area, index) => (
-              <motion.div
-                key={area.title}
-                className="bg-white rounded-2xl p-8 shadow-lg"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-bold text-gray-800">
-                    {area.title}
-                  </h3>
-                  <span className="text-2xl font-bold text-primary-orange">
-                    {area.percentage}%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
+                  {/* Right side - Stats Grid */}
+                  <div className="lg:col-span-9">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {program.stats.map((stat, idx) => (
+                        <motion.div
+                          key={idx}
+                          className="bg-green-50 rounded-lg p-6"
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: index * 0.1 + idx * 0.1 }}
+                        >
+                          <p className="text-gray-800 text-base md:text-lg leading-relaxed">
+                            {stat}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Separator Line - not shown after last item */}
+                {index < programs.length - 1 && (
                   <motion.div
-                    className="bg-gradient-to-r from-primary-yellow to-primary-orange h-3 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${area.percentage}%` }}
+                    className="mt-16 h-px bg-gradient-to-r from-transparent via-primary-orange to-transparent opacity-30"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                   />
-                </div>
-                <p className="text-gray-600">
-                  {area.description}
-                </p>
-              </motion.div>
+                )}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Journey
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Milestones that mark our progress towards a more inclusive society
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                className="relative pl-8 pb-12 border-l-4 border-primary-orange last:pb-0"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="absolute left-0 top-0 w-4 h-4 -ml-[10px] rounded-full bg-primary-orange border-4 border-white shadow-lg"></div>
-                <div className="bg-gray-50 rounded-2xl p-6 ml-6">
-                  <span className="inline-block px-4 py-1 bg-primary-orange text-white rounded-full text-sm font-semibold mb-3">
-                    {achievement.year}
-                  </span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {achievement.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
+      {/* Donation Call to Action */}
       <section className="section-padding bg-gradient-to-br from-primary-yellow to-primary-orange">
         <div className="container-custom">
           <motion.div
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Be Part of Our Impact
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Giving is not just about making a Donation it's about making difference.
             </h2>
-            <p className="text-xl text-gray-800 mb-8">
-              Every contribution, whether time or resources, amplifies our impact. Join us in creating positive change.
+            <p className="text-lg md:text-xl text-gray-800 mb-8">
+              (Your Donation will be Exempted Under Income Tax Act Provision Section 80G)
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/volunteer" className="btn-primary bg-white text-primary-orange hover:bg-gray-100">
-                Volunteer With Us
-              </a>
-              <a href="/donate" className="btn-secondary border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white">
-                Make a Donation
-              </a>
-            </div>
+            <a 
+              href="/donate" 
+              className="btn-primary bg-white text-primary-orange hover:bg-gray-100 inline-block px-8 py-4 text-lg font-semibold"
+            >
+              Donate Now
+            </a>
           </motion.div>
         </div>
       </section>

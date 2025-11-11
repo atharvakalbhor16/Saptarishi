@@ -2,55 +2,23 @@
 
 import PageHeader from '@/components/PageHeader'
 import { motion } from 'framer-motion'
-import { Building2, Handshake, Award } from 'lucide-react'
+import { Handshake } from 'lucide-react'
+import Image from 'next/image'
 
 export default function AssociatesPage() {
-  const partners = [
-    {
-      category: 'Government Partners',
-      organizations: [
-        'Ministry of Social Justice and Empowerment',
-        'State Health Departments',
-        'District Administration Offices',
-        'Local Municipal Bodies'
-      ]
-    },
-    {
-      category: 'Healthcare Partners',
-      organizations: [
-        'Multi-specialty Hospitals',
-        'Rehabilitation Centers',
-        'Medical Colleges',
-        'Diagnostic Centers'
-      ]
-    },
-    {
-      category: 'Educational Institutions',
-      organizations: [
-        'Special Education Schools',
-        'Skill Development Centers',
-        'Universities',
-        'Vocational Training Institutes'
-      ]
-    },
-    {
-      category: 'NGO Partners',
-      organizations: [
-        'Disability Rights Organizations',
-        'Community Based Organizations',
-        'Parent Support Groups',
-        'Advocacy Groups'
-      ]
-    },
-    {
-      category: 'Corporate Partners',
-      organizations: [
-        'CSR Programs',
-        'Technology Companies',
-        'Healthcare Companies',
-        'Financial Institutions'
-      ]
-    }
+  const associates = [
+    { id: 1, image: '/images/associate-01.png', alt: 'Associate 1' },
+    { id: 2, image: '/images/associate-02.png', alt: 'Associate 2' },
+    { id: 3, image: '/images/associate-03.png', alt: 'Associate 3' },
+    { id: 4, image: '/images/associate-04.png', alt: 'Associate 4' },
+    { id: 5, image: '/images/associate-05.png', alt: 'Associate 5' },
+    { id: 6, image: '/images/associate-06.png', alt: 'Associate 6' },
+    { id: 7, image: '/images/associate-07.png', alt: 'Associate 7' },
+    { id: 8, image: '/images/associate-08.png', alt: 'Associate 8' },
+    { id: 9, image: '/images/associate-09.png', alt: 'Associate 9' },
+    { id: 10, image: '/images/associate-10.png', alt: 'Associate 10' },
+    { id: 11, image: '/images/associate-11.png', alt: 'Associate 11' },
+    { id: 12, image: '/images/associate-12.png', alt: 'Associate 12' },
   ]
 
   return (
@@ -77,30 +45,24 @@ export default function AssociatesPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partners.map((partner, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {associates.map((associate, index) => (
               <motion.div
-                key={partner.category}
-                className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all"
+                key={associate.id}
+                className="bg-white rounded-2xl p-6 hover:shadow-xl transition-all border border-gray-200 flex items-center justify-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-yellow to-primary-orange rounded-2xl flex items-center justify-center mb-4">
-                  <Building2 className="text-white" size={32} />
+                <div className="relative w-52 h-52">
+                  <Image
+                    src={associate.image}
+                    alt={associate.alt}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  {partner.category}
-                </h3>
-                <ul className="space-y-2">
-                  {partner.organizations.map((org, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-600">
-                      <span className="text-primary-orange">•</span>
-                      <span>{org}</span>
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             ))}
           </div>
