@@ -128,13 +128,40 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 20px;
 }
 
+@media (max-width: 640px) {
+  .container-custom {
+    padding: 0 16px;
+  }
+  
+  /* Ensure no horizontal overflow on mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
+  main {
+    overflow-x: hidden;
+  }
+}
+
 .section-padding {
   padding: 80px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section-padding {
     padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 48px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding: 40px 0;
   }
 }
 
@@ -158,6 +185,13 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
 
+@media (max-width: 640px) {
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
 .btn-secondary {
   background: white;
   color: var(--primary-orange);
@@ -176,6 +210,13 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
+@media (max-width: 640px) {
+  .btn-secondary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
 /* Card Styles */
 .card {
   background: white;
@@ -188,6 +229,13 @@ h1, h2, h3, h4, h5, h6 {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+  }
 }
 
 /* Icon Box */
@@ -243,5 +291,33 @@ h1, h2, h3, h4, h5, h6 {
   }
   h3 {
     font-size: 1.5rem;
+  }
+}
+
+/* Form elements touch-friendly on mobile */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    min-height: 44px; /* Apple's recommended touch target */
+  }
+  
+  button,
+  a.btn-primary,
+  a.btn-secondary {
+    min-height: 44px;
+    touch-action: manipulation; /* Improves touch responsiveness */
+  }
+}
+
+/* Improve scroll behavior on mobile */
+@media (max-width: 1024px) {
+  html {
+    -webkit-overflow-scrolling: touch;
   }
 }

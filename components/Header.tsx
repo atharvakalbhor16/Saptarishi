@@ -3,13 +3,15 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [expandedSection, setExpandedSection] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,29 +36,52 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileMenuOpen])
+
+  const toggleSection = (section: string) => {
+    setExpandedSection(expandedSection === section ? null : section)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+    setExpandedSection(null)
+  }
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-lg' : 'bg-white'
       } ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between py-4">
+      <div className="container-custom max-w-full">
+        <div className="flex items-center justify-between py-3 md:py-4 gap-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
             <Image 
               src="/images/logo.png" 
               alt="Saptrishi Foundation Logo" 
               width={250} 
               height={70}
-              className="object-contain"
+              className="object-contain w-40 sm:w-48 md:w-56 lg:w-64 h-auto"
+              priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-6 flex-shrink-0">
             <Link 
               href="/" 
               className="text-gray-700 hover:text-primary-orange transition-colors font-medium"
@@ -149,7 +174,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700"
+            className="lg:hidden text-gray-700 p-1.5 hover:bg-gray-100 rounded-lg transition-colors flex-shrink-0"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -158,84 +183,214 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="lg:hidden py-4 bg-white border-t max-h-[80vh] overflow-y-auto">
-            <div className="flex flex-col space-y-2">
-              <Link 
-                href="/" 
-                className="px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              
-              <div className="border-b border-gray-100">
-                <p className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase">About</p>
-                <Link href="/about" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  About Us
-                </Link>
-                <Link href="/vision-mission" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Vision & Mission
-                </Link>
-                <Link href="/impact" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Impact
-                </Link>
-                <Link href="/testimonials" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Testimonials
-                </Link>
-              </div>
-
-              <div className="border-b border-gray-100">
-                <p className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase">Programs</p>
-                <Link href="/initiatives" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Our Initiatives
-                </Link>
-                <Link href="/associates" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Associates
-                </Link>
-                <Link href="/news-events" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  News & Events
-                </Link>
-              </div>
-
-              <div className="border-b border-gray-100">
-                <p className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase">Get Involved</p>
-                <Link href="/volunteer" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Become a Volunteer
-                </Link>
-                <Link href="/donate" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Donate
-                </Link>
-                <Link href="/membership" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Divyang Membership
-                </Link>
-                <Link href="/suggestions" className="px-6 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Suggestions
-                </Link>
-              </div>
-
-              <Link 
-                href="/contact" 
-                className="px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              
-              <div className="px-4 pt-4">
-                <a 
-                  href="https://rzp.io/l/saptrishifoundation" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary w-full text-center block"
-                  onClick={() => setIsMobileMenuOpen(false)}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.nav 
+              className="lg:hidden bg-white border-t max-h-[calc(100vh-80px)] overflow-y-auto"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex flex-col space-y-1 py-4">
+                <Link 
+                  href="/" 
+                  className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2"
+                  onClick={closeMobileMenu}
                 >
-                  Donate
-                </a>
+                  Home
+                </Link>
+                
+                {/* About Section */}
+                <div className="border-b border-gray-100 pb-2">
+                  <button
+                    onClick={() => toggleSection('about')}
+                    className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
+                  >
+                    About
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-200 ${
+                        expandedSection === 'about' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {expandedSection === 'about' && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-1 ml-2 space-y-1">
+                          <Link 
+                            href="/about" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            About Us
+                          </Link>
+                          <Link 
+                            href="/vision-mission" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Vision & Mission
+                          </Link>
+                          <Link 
+                            href="/impact" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Impact
+                          </Link>
+                          <Link 
+                            href="/testimonials" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Testimonials
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Programs Section */}
+                <div className="border-b border-gray-100 pb-2">
+                  <button
+                    onClick={() => toggleSection('programs')}
+                    className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
+                  >
+                    Programs
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-200 ${
+                        expandedSection === 'programs' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {expandedSection === 'programs' && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-1 ml-2 space-y-1">
+                          <Link 
+                            href="/initiatives" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Our Initiatives
+                          </Link>
+                          <Link 
+                            href="/associates" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Associates
+                          </Link>
+                          <Link 
+                            href="/news-events" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            News & Events
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Get Involved Section */}
+                <div className="border-b border-gray-100 pb-2">
+                  <button
+                    onClick={() => toggleSection('getInvolved')}
+                    className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
+                  >
+                    Get Involved
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-200 ${
+                        expandedSection === 'getInvolved' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {expandedSection === 'getInvolved' && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-1 ml-2 space-y-1">
+                          <Link 
+                            href="/volunteer" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Become a Volunteer
+                          </Link>
+                          <Link 
+                            href="/donate" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Donate
+                          </Link>
+                          <Link 
+                            href="/membership" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Divyang Membership
+                          </Link>
+                          <Link 
+                            href="/suggestions" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Suggestions
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Link 
+                  href="/contact" 
+                  className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2"
+                  onClick={closeMobileMenu}
+                >
+                  Contact
+                </Link>
+                
+                <div className="px-4 pt-4">
+                  <a 
+                    href="https://rzp.io/l/saptrishifoundation" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary w-full text-center block"
+                    onClick={closeMobileMenu}
+                  >
+                    Donate
+                  </a>
+                </div>
               </div>
-            </div>
-          </nav>
-        )}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   )

@@ -143,36 +143,36 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
               </button>
 
               {/* Modal Header */}
-              <div className="px-8 pb-6">
-                <div className="aspect-video bg-gradient-to-br from-primary-yellow to-primary-orange rounded-xl mb-6 flex items-center justify-center text-white text-7xl">
+              <div className="px-4 sm:px-6 md:px-8 pb-6">
+                <div className="aspect-video bg-gradient-to-br from-primary-yellow to-primary-orange rounded-xl mb-6 flex items-center justify-center text-white text-5xl sm:text-6xl md:text-7xl">
                   📰
                 </div>
                 
                 <p className="text-sm text-gray-500 mb-3">📅 {selectedNews.date}</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                   {selectedNews.title}
                 </h2>
               </div>
 
               {/* Modal Body */}
-              <div className="px-8 pb-8">
-                <div className="prose prose-lg max-w-none">
+              <div className="px-4 sm:px-6 md:px-8 pb-8">
+                <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
                   {selectedNews.content.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                    <p key={index} className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
                       {paragraph}
                     </p>
                   ))}
                 </div>
 
                 {/* Contact Info */}
-                <div className="mt-8 p-6 bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10 rounded-xl border-l-4 border-primary-orange">
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Contact Information</h3>
-                  <div className="space-y-2 text-gray-700">
+                <div className="mt-8 p-4 sm:p-6 bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10 rounded-xl border-l-4 border-primary-orange">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3">Contact Information</h3>
+                  <div className="space-y-2 text-gray-700 text-sm sm:text-base">
                     <p><strong>Address:</strong> First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune - 411017</p>
-                    <p><strong>Email:</strong> <a href="mailto:saptrishifoundationpune@gmail.com" className="text-primary-orange hover:underline">saptrishifoundationpune@gmail.com</a></p>
-                    <p><strong>Phone:</strong> 9762184554 / 9665363177 / 9172716630</p>
-                    <p><strong>Website:</strong> <a href="https://saptrishifoundation.in/" target="_blank" rel="noopener noreferrer" className="text-primary-orange hover:underline">https://saptrishifoundation.in/</a></p>
-                    <p><strong>Social Media:</strong> <a href="https://linktr.ee/SaptrishiFoundation" target="_blank" rel="noopener noreferrer" className="text-primary-orange hover:underline">https://linktr.ee/SaptrishiFoundation</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:saptrishifoundationpune@gmail.com" className="text-primary-orange hover:underline break-all">saptrishifoundationpune@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <span className="break-all">9762184554 / 9665363177 / 9172716630</span></p>
+                    <p><strong>Website:</strong> <a href="https://saptrishifoundation.in/" target="_blank" rel="noopener noreferrer" className="text-primary-orange hover:underline break-all">https://saptrishifoundation.in/</a></p>
+                    <p><strong>Social Media:</strong> <a href="https://linktr.ee/SaptrishiFoundation" target="_blank" rel="noopener noreferrer" className="text-primary-orange hover:underline break-all">https://linktr.ee/SaptrishiFoundation</a></p>
                   </div>
                 </div>
               </div>
