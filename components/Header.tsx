@@ -206,6 +206,18 @@ export default function Header() {
           </button>
         </div>
 
+        {/* Mobile Donate Button - Below Logo */}
+        <div className="lg:hidden px-4 pb-3">
+          <a
+            href="https://rzp.io/l/saptrishifoundation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center bg-primary-orange text-white font-semibold py-3 px-6 rounded-xl hover:bg-orange-600 transition-all shadow-md text-lg"
+          >
+            Donate Now
+          </a>
+        </div>
+
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMobileMenuOpen && (
