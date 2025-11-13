@@ -69,15 +69,28 @@ export default function Header() {
       <div className="container-custom max-w-full">
         <div className="flex items-center justify-between py-3 md:py-4 gap-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
-            <Image 
-              src="/images/logo.png" 
-              alt="Saptrishi Foundation Logo" 
-              width={250} 
-              height={70}
-              className="object-contain w-40 sm:w-48 md:w-56 lg:w-64 h-auto"
-              priority
-            />
+          <Link href="/" className="flex items-center gap-3 flex-shrink-0 min-w-0 group">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <Image 
+                  src="/images/logo.jpeg" 
+                  alt="Saptrishi Foundation Logo" 
+                  width={60} 
+                  height={60}
+                  className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 transition-transform group-hover:scale-110 duration-300"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-orange/20 to-primary-yellow/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <span className="text-xl sm:text-2xl md:text-[28px] font-bold bg-gradient-to-r from-primary-orange via-primary-yellow to-primary-orange bg-clip-text text-transparent leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Saptrishi
+                </span>
+                <span className="text-xl sm:text-2xl md:text-[28px] font-bold bg-gradient-to-r from-primary-orange via-primary-yellow to-primary-orange bg-clip-text text-transparent leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Foundation
+                </span>
+              </div>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -89,22 +102,41 @@ export default function Header() {
               Home
             </Link>
             
+            {/* Who We Are */}
             <div className="relative group">
               <button className="text-gray-700 hover:text-primary-orange transition-colors font-medium flex items-center gap-1">
-                About
+                Who We Are
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                 <Link href="/about" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
-                  About Us
+                  About
                 </Link>
                 <Link href="/vision-mission" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
                   Vision & Mission
                 </Link>
-                <Link href="/impact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
-                  Impact
+                <Link href="/contact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            {/* Your Contribution */}
+            <div className="relative group">
+              <button className="text-gray-700 hover:text-primary-orange transition-colors font-medium flex items-center gap-1">
+                Your Contribution
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                <Link href="/membership" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
+                  Enroll for Divyang Membership
+                </Link>
+                <Link href="/associates" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
+                  Associates With
                 </Link>
                 <Link href="/testimonials" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
                   Testimonials
@@ -112,55 +144,47 @@ export default function Header() {
               </div>
             </div>
 
+            {/* What We Do */}
             <div className="relative group">
               <button className="text-gray-700 hover:text-primary-orange transition-colors font-medium flex items-center gap-1">
-                Programs
+                What We Do
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                 <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
+                  Our Project
+                </Link>
+                <Link href="/impact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
+                  Impact
+                </Link>
+                <Link href="/volunteer" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
                   Our Initiatives
-                </Link>
-                <Link href="/associates" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
-                  Associates
-                </Link>
-                <Link href="/news-events" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
-                  News & Events
                 </Link>
               </div>
             </div>
 
+            {/* Our Offering */}
             <div className="relative group">
               <button className="text-gray-700 hover:text-primary-orange transition-colors font-medium flex items-center gap-1">
-                Get Involved
+                Our Offering
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link href="/volunteer" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
-                  Become a Volunteer
+                <Link href="/downloads" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
+                  Media Gallery
                 </Link>
-                <Link href="/donate" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
-                  Donate
+                <Link href="/news-events" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
+                  News & Events
                 </Link>
-                <Link href="/membership" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
-                  Divyang Membership
-                </Link>
-                <Link href="/suggestions" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
-                  Suggestions
+                <Link href="/downloads" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
+                  Download
                 </Link>
               </div>
             </div>
-
-            <Link 
-              href="/contact" 
-              className="text-gray-700 hover:text-primary-orange transition-colors font-medium"
-            >
-              Contact
-            </Link>
             
             <a 
               href="https://rzp.io/l/saptrishifoundation" 
@@ -201,22 +225,22 @@ export default function Header() {
                   Home
                 </Link>
                 
-                {/* About Section */}
+                {/* Who We Are Section */}
                 <div className="border-b border-gray-100 pb-2">
                   <button
-                    onClick={() => toggleSection('about')}
+                    onClick={() => toggleSection('whoWeAre')}
                     className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
                   >
-                    About
+                    Who We Are
                     <ChevronDown 
                       size={20} 
                       className={`transition-transform duration-200 ${
-                        expandedSection === 'about' ? 'rotate-180' : ''
+                        expandedSection === 'whoWeAre' ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
                   <AnimatePresence>
-                    {expandedSection === 'about' && (
+                    {expandedSection === 'whoWeAre' && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
@@ -230,7 +254,7 @@ export default function Header() {
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
-                            About Us
+                            About
                           </Link>
                           <Link 
                             href="/vision-mission" 
@@ -240,11 +264,55 @@ export default function Header() {
                             Vision & Mission
                           </Link>
                           <Link 
-                            href="/impact" 
+                            href="/contact" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
-                            Impact
+                            Contact Us
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Your Contribution Section */}
+                <div className="border-b border-gray-100 pb-2">
+                  <button
+                    onClick={() => toggleSection('contribution')}
+                    className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
+                  >
+                    Your Contribution
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-200 ${
+                        expandedSection === 'contribution' ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {expandedSection === 'contribution' && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-1 ml-2 space-y-1">
+                          <Link 
+                            href="/membership" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Enroll for Divyang Membership
+                          </Link>
+                          <Link 
+                            href="/associates" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Associates With
                           </Link>
                           <Link 
                             href="/testimonials" 
@@ -259,22 +327,22 @@ export default function Header() {
                   </AnimatePresence>
                 </div>
 
-                {/* Programs Section */}
+                {/* What We Do Section */}
                 <div className="border-b border-gray-100 pb-2">
                   <button
-                    onClick={() => toggleSection('programs')}
+                    onClick={() => toggleSection('whatWeDo')}
                     className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
                   >
-                    Programs
+                    What We Do
                     <ChevronDown 
                       size={20} 
                       className={`transition-transform duration-200 ${
-                        expandedSection === 'programs' ? 'rotate-180' : ''
+                        expandedSection === 'whatWeDo' ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
                   <AnimatePresence>
-                    {expandedSection === 'programs' && (
+                    {expandedSection === 'whatWeDo' && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
@@ -288,21 +356,21 @@ export default function Header() {
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
+                            Our Project
+                          </Link>
+                          <Link 
+                            href="/impact" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Impact
+                          </Link>
+                          <Link 
+                            href="/volunteer" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
                             Our Initiatives
-                          </Link>
-                          <Link 
-                            href="/associates" 
-                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
-                            onClick={closeMobileMenu}
-                          >
-                            Associates
-                          </Link>
-                          <Link 
-                            href="/news-events" 
-                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
-                            onClick={closeMobileMenu}
-                          >
-                            News & Events
                           </Link>
                         </div>
                       </motion.div>
@@ -310,22 +378,22 @@ export default function Header() {
                   </AnimatePresence>
                 </div>
 
-                {/* Get Involved Section */}
+                {/* Our Offering Section */}
                 <div className="border-b border-gray-100 pb-2">
                   <button
-                    onClick={() => toggleSection('getInvolved')}
+                    onClick={() => toggleSection('offering')}
                     className="w-full px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2 flex items-center justify-between"
                   >
-                    Get Involved
+                    Our Offering
                     <ChevronDown 
                       size={20} 
                       className={`transition-transform duration-200 ${
-                        expandedSection === 'getInvolved' ? 'rotate-180' : ''
+                        expandedSection === 'offering' ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
                   <AnimatePresence>
-                    {expandedSection === 'getInvolved' && (
+                    {expandedSection === 'offering' && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
@@ -335,46 +403,31 @@ export default function Header() {
                       >
                         <div className="mt-1 ml-2 space-y-1">
                           <Link 
-                            href="/volunteer" 
+                            href="/downloads" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
-                            Become a Volunteer
+                            Media Gallery
                           </Link>
                           <Link 
-                            href="/donate" 
+                            href="/news-events" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
-                            Donate
+                            News & Events
                           </Link>
                           <Link 
-                            href="/membership" 
+                            href="/downloads" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
-                            Divyang Membership
-                          </Link>
-                          <Link 
-                            href="/suggestions" 
-                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
-                            onClick={closeMobileMenu}
-                          >
-                            Suggestions
+                            Download
                           </Link>
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
-
-                <Link 
-                  href="/contact" 
-                  className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange transition-colors font-medium rounded-lg mx-2"
-                  onClick={closeMobileMenu}
-                >
-                  Contact
-                </Link>
                 
                 <div className="px-4 pt-4">
                   <a 

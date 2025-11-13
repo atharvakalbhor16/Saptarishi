@@ -254,8 +254,13 @@ export default function VisionMissionPage() {
               <a href="/volunteer" className="btn-primary bg-white text-primary-orange hover:bg-gray-100">
                 Become a Volunteer
               </a>
-              <a href="/donate" className="btn-secondary border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white">
-                Support Our Cause
+              <a 
+                href="https://rzp.io/l/saptrishifoundation" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+              >
+                Donate Now
               </a>
             </div>
           </motion.div>

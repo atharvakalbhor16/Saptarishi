@@ -7,38 +7,37 @@ import { Download, FileText, BookOpen, Image as ImageIcon, Video } from 'lucide-
 export default function DownloadsPage() {
   const resources = [
     {
+      category: 'News & Updates',
+      icon: FileText,
+      items: [
+        { name: 'News Article 1', size: 'PDF', link: '/images/news1.pdf', type: 'pdf' },
+        { name: 'News Article 2', size: 'PDF', link: '/images/news2.pdf', type: 'pdf' }
+      ]
+    },
+    {
       category: 'Mobile Apps',
       icon: Download,
       items: [
-        { name: 'Saptrishi Foundation App (Android)', size: '15 MB', link: 'https://play.google.com/store/apps/details?id=com.saptrishi.sf_app' },
-        { name: 'iOS App (Coming Soon)', size: '-', link: '#' }
+        { name: 'Saptrishi Foundation App (Coming Soon)', size: '-', link: '#', type: 'app' },
+        // { name: 'iOS App (Coming Soon)', size: '-', link: '#', type: 'app' }
       ]
     },
     {
       category: 'Information Brochures',
-      icon: FileText,
-      items: [
-        { name: 'Organization Brochure', size: '2 MB', link: '#' },
-        { name: 'Services Guide', size: '1.5 MB', link: '#' },
-        { name: 'Government Schemes List', size: '3 MB', link: '#' }
-      ]
-    },
-    {
-      category: 'Forms & Applications',
       icon: BookOpen,
       items: [
-        { name: 'Volunteer Registration Form', size: '500 KB', link: '#' },
-        { name: 'Membership Form', size: '400 KB', link: '#' },
-        { name: 'Suggestions Form', size: '300 KB', link: '#' }
+        { name: 'Organization Brochure', size: 'Coming Soon', link: '#', type: 'pdf' },
+        { name: 'Services Guide', size: 'Coming Soon', link: '#', type: 'pdf' },
+        { name: 'Government Schemes List', size: 'Coming Soon', link: '#', type: 'pdf' }
       ]
     },
     {
       category: 'Reports & Documents',
       icon: FileText,
       items: [
-        { name: 'Annual Report 2024-25', size: '5 MB', link: '#' },
-        { name: 'Impact Report', size: '3 MB', link: '#' },
-        { name: '80G Certificate Sample', size: '500 KB', link: '#' }
+        { name: 'Annual Report 2024-25', size: 'Coming Soon', link: '#', type: 'pdf' },
+        { name: 'Impact Report', size: 'Coming Soon', link: '#', type: 'pdf' },
+        { name: '80G Certificate Sample', size: 'Coming Soon', link: '#', type: 'pdf' }
       ]
     }
   ]
@@ -89,27 +88,42 @@ export default function DownloadsPage() {
                   {category.items.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all group"
+                      className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 hover:shadow-xl transition-all group border border-gray-100"
                     >
-                      <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-12 h-12 bg-primary-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary-orange/20 transition-colors">
+                          <FileText className="text-primary-orange" size={24} />
+                        </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-gray-800 mb-2 group-hover:text-primary-orange transition-colors">
+                          <h4 className="font-bold text-gray-800 mb-1 group-hover:text-primary-orange transition-colors">
                             {item.name}
                           </h4>
-                          <p className="text-sm text-gray-500">
-                            Size: {item.size}
+                          <p className="text-sm text-gray-500 flex items-center gap-1">
+                            {item.type === 'pdf' && <span>📄</span>}
+                            {item.type === 'app' && <span>📱</span>}
+                            <span>{item.size}</span>
                           </p>
                         </div>
                       </div>
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-primary-orange font-semibold hover:gap-3 transition-all"
-                      >
-                        <Download size={16} />
-                        Download
-                      </a>
+                      {item.link !== '#' ? (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download={item.type === 'pdf'}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-orange text-white rounded-full font-semibold hover:bg-orange-600 transition-all w-full justify-center"
+                        >
+                          <Download size={18} />
+                          Download
+                        </a>
+                      ) : (
+                        <button
+                          disabled
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-500 rounded-full font-semibold w-full justify-center cursor-not-allowed"
+                        >
+                          Coming Soon
+                        </button>
+                      )}
                     </div>
                   ))}
                 </div>
