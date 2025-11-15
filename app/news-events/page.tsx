@@ -180,39 +180,6 @@ Many parents expressed that Dr. Nagarkar sir shared valuable insights and gave a
           </div>
         )}
       </AnimatePresence>
-
-      {/* Newsletter Signup */}
-      <section className="section-padding bg-gradient-to-br from-primary-orange to-orange-600 text-white">
-        <div className="container-custom">
-          <motion.div
-            className="max-w-2xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Stay Informed
-            </h2>
-            <p className="text-xl mb-8">
-              Subscribe to our newsletter for updates on news and opportunities
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-              <button
-                type="button"
-                className="px-8 py-4 bg-white text-primary-orange rounded-full font-semibold hover:bg-gray-100 transition-all"
-              >
-                Subscribe
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   )
 }

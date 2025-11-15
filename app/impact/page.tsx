@@ -122,6 +122,64 @@ export default function ImpactPage() {
         </div>
       </section>
 
+      {/* Impact Stories Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Impact Stories from Our Community
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Since last 10 years, we have been working in Pimpri Chinchwad area of Pune and our work has supported thousands of PwDs and families. Since activation of our portal and one-stop solution in October 2023, it has benefited more than thousand families and they have easily obtained benefits of the Government schemes.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <motion.div
+              className="bg-white rounded-2xl p-8 shadow-lg"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-6">
+                <div className="text-primary-orange text-5xl mb-4">"</div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  It is a nice App prepared by Saptrishi Foundation, We get all updates regarding Niramaya Health Insurance Scheme and other services and information in this app. It saves our time and money. Every year since 2016 till 2024, we have received reimbursement of OPD expenses incurred for my Son – Abhijit. With Saptrishi Foundation's assistance, we are able to get some reimbursement for our medicine costs. It makes a big difference. We are really thankful to Saptrishi Foundation.
+                </p>
+              </div>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="font-bold text-gray-800">Ranjana Sutar</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-2xl p-8 shadow-lg"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-6">
+                <div className="text-primary-orange text-5xl mb-4">"</div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  My son is having 90% Intellectual disability. It is very hard to move from one place to another. Due to this, we have faced many difficulties in work related to Documents such as UDID card. It was possible due to Saptrishi Foundation that YCM Hospital team had come for home visit for UDID related work. Saptrishi Foundation had taken continuous follow up with the Hospital from the visit for physical examination till UDID card was generated and given to us. Also I received medical expenses reimbursement and financial aid from the Government with the help and guidance of Saptrishi Foundation. My Sincere thanks to Manoj sir and his team.
+                </p>
+              </div>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="font-bold text-gray-800">Dr. Uday Joshi</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Donation Call to Action */}
       <section className="section-padding bg-gradient-to-br from-primary-yellow to-primary-orange">
         <div className="container-custom">

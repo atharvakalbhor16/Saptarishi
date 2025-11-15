@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion'
 import PageHeader from '@/components/PageHeader'
-import { Mail, Phone, MapPin, Facebook, Twitter, Youtube, Linkedin } from 'lucide-react'
+import { Mail, Phone, MapPin, Facebook, Twitter, Youtube, Linkedin, Instagram } from 'lucide-react'
 
 export default function ContactPage() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Office Location',
-      content:'C/o Office no -105, 1 floor , Aspiro Commercial complex, in front of Thyssenkrup Company , Station road, Pimpri ,Pune 411018',
+      title: 'Office Address',
+      content:'Saptrishi Foundation, First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune- 411017',
       link: null
     },
     {
@@ -17,6 +17,12 @@ export default function ContactPage() {
       title: 'Office Contact No',
       content: '+91 9172716630',
       link: 'tel:+919172716630'
+    },
+    {
+      icon: Phone,
+      title: 'Claim Related Query',
+      content: '+91 9075705939',
+      link: 'tel:+919075705939'
     },
     {
       icon: Mail,
@@ -51,7 +57,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Contact Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.title}
@@ -129,6 +135,15 @@ export default function ContactPage() {
                 aria-label="Facebook"
               >
                 <Facebook className="text-white" size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/saptrishi_foundation/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-14 h-14 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                aria-label="Instagram"
+              >
+                <Instagram className="text-white" size={24} />
               </a>
               <a
                 href="https://x.com/SaptrishiF1"

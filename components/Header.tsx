@@ -153,13 +153,13 @@ export default function Header() {
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
+                <Link href="/ourproject" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
                   Our Project
                 </Link>
                 <Link href="/impact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
                   Impact
                 </Link>
-                <Link href="/volunteer" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
+                <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
                   Our Initiatives
                 </Link>
               </div>
@@ -174,7 +174,7 @@ export default function Header() {
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link href="/downloads" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
+                <Link href="/media-gallery" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
                   Media Gallery
                 </Link>
                 <Link href="/news-events" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
@@ -364,7 +364,7 @@ export default function Header() {
                       >
                         <div className="mt-1 ml-2 space-y-1">
                           <Link 
-                            href="/initiatives" 
+                            href="/ourproject" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
@@ -378,7 +378,7 @@ export default function Header() {
                             Impact
                           </Link>
                           <Link 
-                            href="/volunteer" 
+                            href="/initiatives" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >
@@ -415,7 +415,7 @@ export default function Header() {
                       >
                         <div className="mt-1 ml-2 space-y-1">
                           <Link 
-                            href="/downloads" 
+                            href="/media-gallery" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
                           >

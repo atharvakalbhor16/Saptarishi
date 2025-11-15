@@ -1,82 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
 
 export default function HeroSection() {
-  const [showDots, setShowDots] = useState(true)
-
-  useEffect(() => {
-    // Hide the animated dots after 1.5 seconds
-    const timer = setTimeout(() => {
-      setShowDots(false)
-    }, 1500)
-
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gray-50 overflow-hidden">
-      {/* Animated Dots Background - Only show during initial load */}
-      {showDots && (
-        <div className="absolute inset-0 flex items-center justify-center z-0">
-          <div className="loader">
-            <motion.span
-              className="absolute w-5 h-5 rounded-full bg-accent-pink"
-              style={{ left: '60px', top: '-20px' }}
-              animate={{
-                y: [0, -30, 0],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: [0.04, 0.35, 0, 1],
-                delay: 0,
-              }}
-            />
-            <motion.span
-              className="absolute w-5 h-5 rounded-full bg-accent-blue"
-              style={{ left: '20px', top: '-20px' }}
-              animate={{
-                y: [0, -30, 0],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: [0.04, 0.35, 0, 1],
-                delay: 0.2,
-              }}
-            />
-            <motion.span
-              className="absolute w-5 h-5 rounded-full bg-accent-green"
-              style={{ left: '-20px', top: '-20px' }}
-              animate={{
-                y: [0, -30, 0],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: [0.04, 0.35, 0, 1],
-                delay: 0.4,
-              }}
-            />
-            <motion.span
-              className="absolute w-5 h-5 rounded-full bg-accent-purple"
-              style={{ left: '-60px', top: '-20px' }}
-              animate={{
-                y: [0, -30, 0],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: [0.04, 0.35, 0, 1],
-                delay: 0.6,
-              }}
-            />
-          </div>
-        </div>
-      )}
-
       {/* Content */}
       <div className="container-custom relative z-10 text-center pt-20">
         <motion.h1

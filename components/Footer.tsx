@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Facebook, Twitter, Youtube, Linkedin } from 'lucide-react'
+import { Facebook, Twitter, Youtube, Linkedin, Instagram } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -26,6 +26,15 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
+              </a>
+              <a 
+                href="https://www.instagram.com/saptrishi_foundation/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary-orange transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
               </a>
               <a 
                 href="https://x.com/SaptrishiF1" 

@@ -33,16 +33,8 @@ export default function VisionMissionPage() {
                 </h2>
               </div>
               <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
-                <p>
-                  To create an inclusive society where every differently abled person has equal access to 
-                  opportunities, resources, and support systems that enable them to live with dignity and independence.
-                </p>
-                <p>
-                  We envision a future where physical, social, and economic barriers are eliminated, and 
-                  the differently abled community is fully integrated into all aspects of society.
-                </p>
-                <p className="font-semibold text-primary-orange">
-                  A world where abilities are celebrated, and limitations are overcome through collective support.
+                <p className="font-semibold text-gray-800 text-xl">
+                  To create a fearless, equitable and just society where poor and marginalized sections live dignified life and transform people into good citizens.
                 </p>
               </div>
             </motion.div>
@@ -122,31 +114,9 @@ export default function VisionMissionPage() {
                 </h2>
               </div>
               <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
-                <p>
-                  To provide an integrated, one-stop platform that connects differently abled individuals 
-                  with essential services, government schemes, educational resources, and support networks.
+                <p className="font-semibold text-gray-800 text-xl">
+                  To reach out to unreached, underprivileged sections of society and bring them into the mainstream by designing equitable, innovative solutions and setting up example of giving back to nature and society.
                 </p>
-                <p>
-                  We are committed to:
-                </p>
-                <ul className="list-none space-y-3 ml-4">
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary-orange text-xl">•</span>
-                    <span>Bridging the gap between beneficiaries and service providers</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary-orange text-xl">•</span>
-                    <span>Simplifying access to government schemes and benefits</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary-orange text-xl">•</span>
-                    <span>Building a supportive community ecosystem</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-primary-orange text-xl">•</span>
-                    <span>Empowering through education and resources</span>
-                  </li>
-                </ul>
               </div>
             </motion.div>
           </div>

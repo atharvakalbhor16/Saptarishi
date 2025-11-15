@@ -3,7 +3,6 @@ import { Open_Sans, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Loader from '@/components/Loader'
 
 const openSans = Open_Sans({ 
   subsets: ['latin'],
@@ -43,7 +42,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${openSans.variable} ${playfair.variable}`}>
       <body className={openSans.className}>
-        <Loader />
         <Header />
         <main>{children}</main>
         <Footer />

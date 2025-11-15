@@ -104,34 +104,21 @@ export default function AboutPage() {
                 Who We Are
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p className="text-lg">
-                  <span className="font-bold text-primary-orange">Saptrishi Foundation</span> is a registered, 
-                  non-profit organization set up to serve the underprivileged sections and last miles of the society.
-                </p>
-                <p>
-                  We strive to work with <span className="font-semibold">civil society, government, philanthropic 
-                  institutions, and corporates</span> to create an impact at a large scale.
-                </p>
-                <p>
-                  Registered under <span className="font-semibold">Societies Registration Act and Bombay Public 
-                  Trust Act in 2017</span>, we work towards the inclusion and rehabilitation of people living 
-                  with disabilities, health and education, street children, women empowerment, and watershed development.
-                </p>
-                <div className="bg-gradient-to-r from-primary-yellow/20 to-primary-orange/20 border-l-4 border-primary-orange p-6 rounded-r-lg">
-                  <p className="font-bold text-gray-800 text-lg">
-                    Saptrishi Foundation was born from a life-changing experience of rehabilitating an orphan child with Intellectual Disability. 
-                    Navigating endless paperwork, government offices, and formalities revealed a critical gap a lack of a unified support system 
-                    for Persons with Disabilities (PwDs). Drawing from expertise in both social work and the insurance sector, we set out to create 
-                    solutions that simplify and support the lives of PwDs.
-
+                <div className="bg-gradient-to-r from-primary-yellow/20 to-primary-orange/20 border-l-4 border-primary-orange p-6 rounded-r-lg mb-4">
+                  <p className="text-gray-800 text-lg leading-relaxed">
+                    Saptrishi Foundation was conceptualized after a life-changing experience of rehabilitating an orphan child with Intellectual Disability. Navigating endless paperwork, government offices, and formalities revealed a critical gap—a lack of a unified support system for Persons with Disabilities (PwDs). Drawing from expertise in both social work and the insurance sector, we set out to create solutions that simplify and support the lives of PwDs.
                   </p>
                 </div>
+                <p className="text-lg">
+                  <span className="font-bold text-primary-orange">Saptrishi Foundation</span> is a registered, non-profit organization set up to serve the underprivileged sections and last miles of the society. It strives to work with <span className="font-semibold">civil society, government, philanthropic institutions, and corporates</span> to create an impact at a large scale.
+                </p>
                 <p>
-                  The COVID-19 pandemic underscored the urgency of our mission. We envisioned a<span className="font-semibold"> digital platform </span>ensuring uninterrupted access to 
-                  disability-related services just a click away. This led to the creation of a mobile application offering hand-holding support for 
-                  <span className="font-semibold ">AADHAR enrollment, UDID cards, and government schemes, alongside organizing free treatment camps</span> and delivering services to the 
-                  grassroots.
-
+                  Registered under <span className="font-semibold">Societies Registration Act and Bombay Public Trust Act in 2017</span>, the organization is working towards the inclusion and rehabilitation of people living with disabilities, health and education, street children, women empowerment and watershed development. The main aim is to empower People with Disabilities across several aspects of their life and support them to live a dignified life. In addition to this, organization is also engaged in performing dignified rituals for unknown or unclaimed human dead bodies which always face negligence.
+                </p>
+                <p>
+                  The COVID-19 pandemic underscored the urgency of our mission. We envisioned a <span className="font-semibold">digital platform</span> ensuring uninterrupted access to disability-related services—just a click away. This led to the creation of a mobile application offering hand-holding support for <span className="font-semibold">AADHAR enrollment, UDID cards, and government schemes</span>, alongside organizing free treatment camps and delivering services to the grassroots.
+                </p>
+                <p className="font-semibold text-primary-orange text-lg">
                   Today, we remain committed to accessibility, inclusion, and empowerment—ensuring no one is left behind.
                 </p>
               </div>
@@ -302,95 +289,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What We Do */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Comprehensive Services We Provide
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              An integrated one-stop solution for people with disabilities and underserved communities
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Government Schemes Support',
-                description: 'Assistance to avail all government schemes (Central, State and Local)'
-              },
-              {
-                title: 'Document Assistance',
-                description: 'Help with obtaining essential documents like UDID cards, disability certificates'
-              },
-              {
-                title: 'Divyang Camps',
-                description: 'Organization of camps and gatherings for the differently-abled community'
-              },
-              {
-                title: 'Insurance Support',
-                description: 'Guidance and coverage for health and disability insurance programs'
-              },
-              {
-                title: 'Resource Centre',
-                description: 'Comprehensive educational materials and support resources'
-              },
-              {
-                title: 'Information Hub',
-                description: 'Centralized information center for all disability-related services'
-              },
-              {
-                title: 'Digital Platform',
-                description: 'Mobile and web application for seamless access to services'
-              },
-              {
-                title: 'Volunteer Network',
-                description: 'Coordination and management of dedicated volunteers'
-              },
-              {
-                title: 'Strategic Partnerships',
-                description: 'Collaborations with NGOs, corporates, and government agencies'
-              },
-              {
-                title: 'Healthcare Access',
-                description: 'Facilitating medical care and rehabilitation services'
-              },
-              {
-                title: 'Educational Programs',
-                description: 'Promoting inclusive education and skill development opportunities'
-              },
-              {
-                title: 'Dignified Last Rites',
-                description: 'Respectful funeral services for unclaimed deceased individuals'
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                className="flex gap-4 items-start bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-100 hover:border-primary-orange hover:shadow-lg transition-all group"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-              >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-yellow to-primary-orange flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform">
-                  <span className="text-white text-sm font-bold">✓</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800 mb-1">{service.title}</h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Image Modal */}
       {selectedImage !== null && (
