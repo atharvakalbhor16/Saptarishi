@@ -11,7 +11,7 @@ interface PageHeaderProps {
 export default function PageHeader({ title, subtitle, backgroundImage }: PageHeaderProps) {
   return (
     <section 
-      className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-primary-yellow to-primary-orange overflow-hidden"
+      className="relative pt-40 pb-20 sm:pt-44 sm:pb-24 md:pt-40 md:pb-32 bg-gradient-to-br from-primary-yellow to-primary-orange overflow-hidden"
       style={backgroundImage ? { backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
     >
       {/* Decorative circles */}
