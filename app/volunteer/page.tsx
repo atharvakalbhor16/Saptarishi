@@ -1,0 +1,184 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import PageHeader from '@/components/PageHeader'
+import { ExternalLink, Users, Heart, HandHeart, Target, Award, Clock } from 'lucide-react'
+
+export default function VolunteerPage() {
+  const benefits = [
+    {
+      icon: <Heart className="w-8 h-8" />,
+      title: 'Make a Difference',
+      description: 'Directly impact the lives of differently-abled individuals and their families'
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: 'Join a Community',
+      description: 'Connect with like-minded individuals passionate about social service'
+    },
+    {
+      icon: <Award className="w-8 h-8" />,
+      title: 'Gain Experience',
+      description: 'Develop valuable skills and experience in social work and community service'
+    },
+    {
+      icon: <HandHeart className="w-8 h-8" />,
+      title: 'Personal Growth',
+      description: 'Experience personal satisfaction and growth through meaningful contributions'
+    }
+  ]
+
+
+  return (
+    <>
+      <PageHeader 
+        title="Become a Volunteer" 
+        subtitle="Join hands with us to create an inclusive society"
+      />
+
+      {/* Introduction Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            className="max-w-4xl mx-auto text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Why Volunteer With Us?
+            </h2>
+
+          </motion.div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                className="text-center p-6 rounded-xl bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10 hover:shadow-lg transition-all"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-yellow to-primary-orange text-white rounded-full mb-4">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+  
+      {/* Google Form Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Register as a Volunteer
+              </h2>
+              <p className="text-lg text-gray-600 mb-6">
+                Fill out the form below to join our volunteer community
+              </p>
+              
+              {/* Open in New Tab Button */}
+              <a
+                href="https://forms.gle/HJCqsDTsWmYG3JKP7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-orange to-primary-yellow text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 mb-8"
+              >
+                <span>Open Form in New Tab</span>
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            </div>
+
+            {/* Embedded Google Form */}
+            <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-xl">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfSxOhc1A-Q5tDNx5MpYPl9T8LGt57c91QRNABKvn7Z22qHtg/viewform"
+                width="100%"
+                height="1200"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                className="w-full"
+                title="Volunteer Registration Form"
+              >
+                Loading…
+              </iframe>
+            </div>
+
+            {/* Fallback Message */}
+            <div className="text-center mt-8">
+              <p className="text-gray-600">
+                Having trouble viewing the form? {' '}
+                <a
+                  href="https://forms.gle/HJCqsDTsWmYG3JKP7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-orange hover:underline font-semibold"
+                >
+                  Click here to open it in a new window
+                </a>
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="section-padding bg-gradient-to-br from-primary-yellow/10 to-primary-orange/10">
+        <div className="container-custom">
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Questions About Volunteering?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Feel free to reach out to us for any queries or more information about volunteer opportunities
+            </p>
+            <div className="space-y-4 text-left bg-white p-8 rounded-xl shadow-md">
+              <p className="text-gray-700">
+                <strong>Email:</strong>{' '}
+                <a href="mailto:saptrishifoundationpune@gmail.com" className="text-primary-orange hover:underline">
+                  saptrishifoundationpune@gmail.com
+                </a>
+              </p>
+              <p className="text-gray-700">
+                <strong>Phone:</strong>{' '}
+                <span className="text-gray-800">9172716630</span>
+              </p>
+              <p className="text-gray-700">
+                <strong>Address:</strong>{' '}
+                First floor, Office no. 105, Aspiro Building, In front of Thyssenkrupp Industries, 
+                Station Road, Dr. Babasaheb Ambedkar Square, Pimpri, Pune - 411017
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  )
+}

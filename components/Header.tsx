@@ -135,6 +135,9 @@ export default function Header() {
                 <Link href="/membership" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
                   Enroll for Divyang Membership
                 </Link>
+                <Link href="/volunteer" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
+                  Become a Volunteer
+                </Link>
                 <Link href="/associates" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
                   Associates With
                 </Link>
@@ -153,13 +156,7 @@ export default function Header() {
                 </svg>
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link href="/ourproject" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-t-lg">
-                  Our Project
-                </Link>
-                <Link href="/impact" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange">
-                  Impact
-                </Link>
-                <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-b-lg">
+                <Link href="/initiatives" className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-orange rounded-lg">
                   Our Initiatives
                 </Link>
               </div>
@@ -320,6 +317,13 @@ export default function Header() {
                             Enroll for Divyang Membership
                           </Link>
                           <Link 
+                            href="/volunteer" 
+                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
+                            onClick={closeMobileMenu}
+                          >
+                            Become a Volunteer
+                          </Link>
+                          <Link 
                             href="/associates" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
                             onClick={closeMobileMenu}
@@ -363,20 +367,6 @@ export default function Header() {
                         className="overflow-hidden"
                       >
                         <div className="mt-1 ml-2 space-y-1">
-                          <Link 
-                            href="/ourproject" 
-                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
-                            onClick={closeMobileMenu}
-                          >
-                            Our Project
-                          </Link>
-                          <Link 
-                            href="/impact" 
-                            className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
-                            onClick={closeMobileMenu}
-                          >
-                            Impact
-                          </Link>
                           <Link 
                             href="/initiatives" 
                             className="block px-6 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-primary-orange rounded-lg ml-2 transition-colors" 
