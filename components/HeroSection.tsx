@@ -11,7 +11,20 @@ export default function HeroSection() {
   
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gray-50 bg-[url('/images/Background.gif')] bg-cover bg-center overflow-hidden">
+    <section
+      className=" 
+      relative
+      min-h-[100dvh]
+      flex
+      items-center
+      justify-center
+      overflow-hidden
+      bg-[url('/images/Background.gif')]
+      bg-cover
+      bg-center
+      bg-no-repeat
+      "
+    >
 
 
       {/* Content */}
