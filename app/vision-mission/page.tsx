@@ -51,7 +51,7 @@ export default function VisionMissionPage() {
                 <div className="text-center p-8 relative z-10">
                   <div className="mb-4">
                     <Image 
-                      src="/images/Vision.png" 
+                      src="/images/Vision.PNG" 
                       alt="Vision" 
                       width={90} 
                       height={90} 
@@ -85,8 +85,8 @@ export default function VisionMissionPage() {
                 <div className="text-center p-8 relative z-10">
                   <div className="mb-4">
                     <Image 
-                      src="/images/Mission.png" 
-                      alt="Vision" 
+                      src="/images/Mission.PNG" 
+                      alt="Mission" 
                       width={90} 
                       height={90} 
                       className="mx-auto rounded-full object-cover"
